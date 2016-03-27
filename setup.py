@@ -24,20 +24,25 @@
 
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
-import sys
+import sys, os
 
-PROJECT = 'wishbone_encode_influxdb'
-VERSION = '0.1.0'
+PROJECT = 'wishbone-encode-influxdb'
+VERSION = '0.1.1'
 
 install_requires = [
     'wishbone>=2.1.1',
 ]
 
 try:
-    with open('README.rst', 'rt') as f:
-        long_description = f.read()
-except IOError:
-    long_description = ''
+    if os.path.isfile("README.rst"):
+        with open('README.rst', 'rt') as f:
+            long_description = f.read()
+    elif os.path.isfile("README.md"):
+        import pypandoc
+        long_description = pypandoc.convert('README.md', 'rst')
+except Exception as err:
+    print "Check whether README.rst or README.md exists."
+    sys.exit(1)
 
 
 class PyTest(TestCommand):
@@ -56,7 +61,7 @@ setup(
     name=PROJECT,
     version=VERSION,
 
-    description='A Wishbone module to convert the internal metric format to InfluxDB line format.',
+    description='A Wishbone encode module to convert the Wishbone metric format to InfluxDB.',
     long_description=long_description,
 
     author='Jelle Smet',
