@@ -1,3 +1,5 @@
+::
+
               __       __    __
     .--.--.--|__.-----|  |--|  |--.-----.-----.-----.
     |  |  |  |  |__ --|     |  _  |  _  |     |  -__|
@@ -11,7 +13,7 @@
     wishbone.encode.influxdb
     ========================
 
-    Version: 0.1.0
+    Version: 1.0.0
 
     Converts the internal metric format to InfluxDB line format.
     ------------------------------------------------------------
@@ -39,4 +41,3 @@
 
             - outbox
                |  Outgoing messges
-

@@ -26,8 +26,8 @@ from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 import sys, os
 
-PROJECT = 'wishbone-encode-influxdb'
-VERSION = '0.1.1'
+PROJECT = 'wishbone_encode_influxdb'
+VERSION = '1.0.0'
 
 install_requires = [
     'wishbone>=2.1.1',
